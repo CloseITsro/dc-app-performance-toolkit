@@ -1,5 +1,6 @@
 from selenium_ui.jira import modules
 from extension.jira import extension_ui  # noqa F401
+from extension.jira import subtasks_navigation_plugin
 
 
 # this action should be the first one
@@ -64,6 +65,13 @@ Refer to `app/selenium_ui/jira/modules.py` for examples.
 
 # def test_1_selenium_custom_action(jira_webdriver, jira_datasets, jira_screen_shots):
 #     extension_ui.app_specific_action(jira_webdriver, jira_datasets)
+
+# Subtasks Navigation plugin
+# 
+# can be run separately for test development purposes:
+#   "pytest jira_ui.py::test_0_selenium_a_login jira_ui.py::test_1_selenium_subtasks_navigation_plugin jira_ui.py::test_2_selenium_z_log_out"
+def test_1_selenium_subtasks_navigation_plugin(jira_webdriver, jira_datasets, jira_screen_shots):
+    subtasks_navigation_plugin.subtasks_navigation_plugin(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
